@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Delete Patient</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Delete Patient {{patient.first_name}}?</h2>
+      <p style="color: #dc3545; font-weight: bold;">Warning: This action cannot be undone.</p>
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </body>
+</html>

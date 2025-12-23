@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Clinical Data Creation</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Clinical Data</h1>
+      <div class="card">
+        <div class="card-header">Patient Information</div>
+        <p><strong>First Name:</strong> {{patient.first_name}}</p>
+        <p><strong>Last Name:</strong> {{patient.last_name}}</p>
+        <p><strong>Age:</strong> {{patient.age}}</p>
+      </div>  
+      <h2>Patient Clinical Data</h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Save</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </body>
+</html>

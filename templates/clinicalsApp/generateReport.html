@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Clinical Data Report</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Clinical Data Report</h1>
+      <table>
+      <thead>
+        <tr>
+          <th>Component Name</th>
+          <th>Component value</th>
+          <th>Measure Date Time</th>
+        </tr>
+        </thead>
+        {% for eachEntry in data %}
+        <tr>
+          <td>{{ eachEntry.compponentName }}</td>
+          <td>{{ eachEntry.measuredValue }}</td>
+          <td>{{ eachEntry.measureDateTime }}</td>
+        </tr>
+        {% endfor %}    
+      </table>
+      <a href="/" class="btn">Home</a>
+    </div>
+    </body>
+</html>
